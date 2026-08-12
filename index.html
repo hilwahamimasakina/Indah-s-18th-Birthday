@@ -11,7 +11,7 @@
     />
     <style>
       .card-hidden { display: none; }
-      /* Mencegah scrollbar muncul berlebihan di HP */
+      /* Mencegah scrollbar muncul berlebihan di layar HP */
       body {
         touch-action: manipulation;
       }
@@ -28,50 +28,53 @@
     <div class="w-full max-w-[350px] mx-auto">
       
       <div id="slide1" class="bg-white/95 backdrop-blur-md border-2 border-pink-100 p-6 shadow-2xl shadow-pink-300/60 rounded-3xl text-center animate__animated animate__backInDown">
-        <span class="inline-block px-3 py-1 bg-pink-100 text-pink-600 text-xs font-semibold rounded-full mb-3"> Special Day 🎉</span>
+        <span class="inline-block px-3 py-1 bg-pink-100 text-pink-600 text-xs font-semibold rounded-full mb-3">TOT TETET TOT TETET</span>
         <h1 class="text-xl font-medium text-gray-700">Happy Birthday</h1>
         <h1 class="text-3xl text-pink-500 font-extrabold animate__animated animate__pulse animate__infinite mt-1 leading-snug">
           Indah Najiha Putri
         </h1>
-        <p class="mt-4 text-gray-500 text-xs">Ketuk tombol di bawah untuk membuka ucapan ✨</p>
+        <p class="mt-4 text-gray-500 text-xs">All special wishes on ur special day🌟</p>
         <button onclick="nextSlide(2)" class="py-3.5 bg-pink-500 text-white font-bold rounded-2xl mt-6 hover:bg-pink-600 active:scale-95 transition-all w-full animate__animated animate__tada animate__infinite shadow-lg shadow-pink-200 text-sm">
           Tap Here! 🎵
         </button>
       </div>
 
       <div id="slide2" class="card-hidden bg-white/95 backdrop-blur-md border-2 border-pink-100 p-6 shadow-2xl shadow-pink-300/60 rounded-3xl text-center animate__animated animate__fadeIn">
-        <h2 class="text-pink-500 font-bold text-lg mb-3">Dear Indah...</h2>
-        <p class="text-gray-700 text-xs leading-relaxed text-justify">
-          It has been quite a while since I first met you, 
+        <h2 class="text-pink-500 font-bold text-lg mb-3">[sounds on🔊]</h2>
+        <p class="text-black-700 text-xs leading-relaxed text-justify">
+          It's been quite a while since I first knew you, 
           and I'm very proud to see how far you've come. 
           May this next step bring you even more stepping 
           stones, growth, and milestones to achieve.
         </p>
         <button onclick="nextSlide(3)" class="py-3.5 bg-pink-500 text-white font-bold rounded-2xl mt-6 w-full hover:bg-pink-600 active:scale-95 transition-all shadow-md text-sm">
-          Next Page ➡️
+          Next
         </button>
       </div>
 
       <div id="slide3" class="card-hidden bg-white/95 backdrop-blur-md border-2 border-pink-100 p-6 shadow-2xl shadow-pink-300/60 rounded-3xl text-center animate__animated animate__fadeIn">
-        <h2 class="text-pink-500 font-bold text-lg mb-3">You're Awesome!</h2>
-        <div class="overflow-hidden rounded-2xl border-2 border-pink-200 mb-3 shadow-md max-h-[260px]">
-          <img src="foto-indah.jpg" alt="Indah's Photo" class="w-full h-full object-cover">
+        <h2 class="text-pink-500 font-bold text-lg mb-3">Dah TUA ⬇️⬇️</h2>
+        <div class="overflow-hidden rounded-2xl border-2 border-pink-200 mb-3 shadow-md max-h-[260px] bg-black">
+          <video autoplay loop muted playsinline class="w-full h-full object-cover">
+            <source src="video-indah.mp4" type="video/mp4" />
+            Browser tidak mendukung tayangan video.
+          </video>
         </div>
-        <p class="text-gray-500 text-[11px] italic">"Keep smiling and shining ✨"</p>
+        <p class="text-gray-500 text-[11px] italic">"Tetap jadi orang baik yah ❤️‍🩹"</p>
         <button onclick="nextSlide(4)" class="py-3.5 bg-pink-500 text-white font-bold rounded-2xl mt-5 w-full hover:bg-pink-600 active:scale-95 transition-all shadow-md text-sm">
-          One More Thing...
+          Satu lagi biar 4
         </button>
       </div>
 
       <div id="slide4" class="card-hidden bg-white/95 backdrop-blur-md border-2 border-pink-100 p-6 shadow-2xl shadow-pink-300/60 rounded-3xl text-center animate__animated animate__fadeIn">
-        <h2 class="text-pink-500 font-extrabold text-lg mb-2">Happy Blessed 18th! 😲</h2>
+        <h2 class="text-pink-500 font-extrabold text-lg mb-2">Happy Blessed 18th Birthday! 😲</h2>
         <p class="text-gray-700 text-xs leading-relaxed mt-3">
           Officially a year older than me now—Madam😝<br><br>
-          I wish you nothing but the best for your future journey. You deserve all the happiness in the world.
+          Karena kita orang Indonesia, jadi kita pake indo. Selamat HUT RI ke 81, DAN SELAMAT HUT INDAH KE 18 (OEMJI TINGGAL DIBALIK). Sukses selalu sayaaaang<3
         </p>
         <h3 class="mt-5 font-bold text-gray-800 text-xs">With love, Hilwa Tuntungan🦦</h3>
         <button onclick="refresh()" class="py-3.5 bg-slate-700 text-white font-bold rounded-2xl mt-6 w-full hover:bg-slate-800 active:scale-95 transition-all shadow-md text-sm">
-          Babayo 🔄
+          Babayo
         </button>
       </div>
 
@@ -79,30 +82,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     <script>
-      // Confetti saat pertama dibuka
+      // Efek Confetti saat web pertama dibuka
       confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
 
       let lagu = document.getElementById("lagu");
 
       function nextSlide(slideNumber) {
-        // Sembunyikan semua slide
+        // Sembunyikan seluruh slide terlebih dahulu
         document.getElementById("slide1").classList.add("card-hidden");
         document.getElementById("slide2").classList.add("card-hidden");
         document.getElementById("slide3").classList.add("card-hidden");
         document.getElementById("slide4").classList.add("card-hidden");
 
-        // Tampilkan slide tujuan dengan animasi halus
+        // Tampilkan slide tujuan dengan efek transisi
         let currentSlide = document.getElementById("slide" + slideNumber);
         currentSlide.classList.remove("card-hidden");
 
-        // Putar lagu mulai dari Slide 2
+        // Memutar musik mulai dari Slide 2 dst
         if (slideNumber >= 2) {
           if (lagu.paused) {
             lagu.play().catch(e => console.log("Audio Error:", e));
           }
         }
 
-        // Efek Confetti tambahan di slide akhir
+        // Efek Confetti ekstra saat sampai di slide penutup (Slide 4)
         if (slideNumber === 4) {
           confetti({ particleCount: 120, spread: 80, origin: { y: 0.5 } });
         }
