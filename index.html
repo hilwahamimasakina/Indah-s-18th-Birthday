@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Indah's 18th Birthday</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      .card-hidden { display: none; }
+      /* Mencegah scrollbar muncul berlebihan di HP */
+      body {
+        touch-action: manipulation;
+      }
+    </style>
+  </head>
+  <body
+    style="background-image: url('https://i.pinimg.com/1200x/50/27/d2/5027d2fd5fd34fb2c1f415cef37dee16.jpg');"
+    class="flex justify-center min-h-screen items-center bg-cover bg-center bg-no-repeat bg-fixed p-4 font-sans select-none"
+  >
+    <audio id="lagu" loop preload="auto">
+      <source src="serta-mulia.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="w-full max-w-[350px] mx-auto">
+      
+      <div id="slide1" class="bg-white/95 backdrop-blur-md border-2 border-pink-100 p-6 shadow-2xl shadow-pink-300/60 rounded-3xl text-center animate__animated animate__backInDown">
+        <span class="inline-block px-3 py-1 bg-pink-100 text-pink-600 text-xs font-semibold rounded-full mb-3"> Special Day 🎉</span>
+        <h1 class="text-xl font-medium text-gray-700">Happy Birthday</h1>
+        <h1 class="text-3xl text-pink-500 font-extrabold animate__animated animate__pulse animate__infinite mt-1 leading-snug">
+          Indah Najiha Putri
+        </h1>
+        <p class="mt-4 text-gray-500 text-xs">Ketuk tombol di bawah untuk membuka ucapan ✨</p>
+        <button onclick="nextSlide(2)" class="py-3.5 bg-pink-500 text-white font-bold rounded-2xl mt-6 hover:bg-pink-600 active:scale-95 transition-all w-full animate__animated animate__tada animate__infinite shadow-lg shadow-pink-200 text-sm">
+          Tap Here! 🎵
+        </button>
+      </div>
+
+      <div id="slide2" class="card-hidden bg-white/95 backdrop-blur-md border-2 border-pink-100 p-6 shadow-2xl shadow-pink-300/60 rounded-3xl text-center animate__animated animate__fadeIn">
+        <h2 class="text-pink-500 font-bold text-lg mb-3">Dear Indah...</h2>
+        <p class="text-gray-700 text-xs leading-relaxed text-justify">
+          It has been quite a while since I first met you, 
+          and I'm very proud to see how far you've come. 
+          May this next step bring you even more stepping 
+          stones, growth, and milestones to achieve.
+        </p>
+        <button onclick="nextSlide(3)" class="py-3.5 bg-pink-500 text-white font-bold rounded-2xl mt-6 w-full hover:bg-pink-600 active:scale-95 transition-all shadow-md text-sm">
+          Next Page ➡️
+        </button>
+      </div>
+
+      <div id="slide3" class="card-hidden bg-white/95 backdrop-blur-md border-2 border-pink-100 p-6 shadow-2xl shadow-pink-300/60 rounded-3xl text-center animate__animated animate__fadeIn">
+        <h2 class="text-pink-500 font-bold text-lg mb-3">You're Awesome!</h2>
+        <div class="overflow-hidden rounded-2xl border-2 border-pink-200 mb-3 shadow-md max-h-[260px]">
+          <img src="foto-indah.jpg" alt="Indah's Photo" class="w-full h-full object-cover">
+        </div>
+        <p class="text-gray-500 text-[11px] italic">"Keep smiling and shining ✨"</p>
+        <button onclick="nextSlide(4)" class="py-3.5 bg-pink-500 text-white font-bold rounded-2xl mt-5 w-full hover:bg-pink-600 active:scale-95 transition-all shadow-md text-sm">
+          One More Thing...
+        </button>
+      </div>
+
+      <div id="slide4" class="card-hidden bg-white/95 backdrop-blur-md border-2 border-pink-100 p-6 shadow-2xl shadow-pink-300/60 rounded-3xl text-center animate__animated animate__fadeIn">
+        <h2 class="text-pink-500 font-extrabold text-lg mb-2">Happy Blessed 18th! 😲</h2>
+        <p class="text-gray-700 text-xs leading-relaxed mt-3">
+          Officially a year older than me now—Madam😝<br><br>
+          I wish you nothing but the best for your future journey. You deserve all the happiness in the world.
+        </p>
+        <h3 class="mt-5 font-bold text-gray-800 text-xs">With love, Hilwa Tuntungan🦦</h3>
+        <button onclick="refresh()" class="py-3.5 bg-slate-700 text-white font-bold rounded-2xl mt-6 w-full hover:bg-slate-800 active:scale-95 transition-all shadow-md text-sm">
+          Babayo 🔄
+        </button>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+      // Confetti saat pertama dibuka
+      confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
+
+      let lagu = document.getElementById("lagu");
+
+      function nextSlide(slideNumber) {
+        // Sembunyikan semua slide
+        document.getElementById("slide1").classList.add("card-hidden");
+        document.getElementById("slide2").classList.add("card-hidden");
+        document.getElementById("slide3").classList.add("card-hidden");
+        document.getElementById("slide4").classList.add("card-hidden");
+
+        // Tampilkan slide tujuan dengan animasi halus
+        let currentSlide = document.getElementById("slide" + slideNumber);
+        currentSlide.classList.remove("card-hidden");
+
+        // Putar lagu mulai dari Slide 2
+        if (slideNumber >= 2) {
+          if (lagu.paused) {
+            lagu.play().catch(e => console.log("Audio Error:", e));
+          }
+        }
+
+        // Efek Confetti tambahan di slide akhir
+        if (slideNumber === 4) {
+          confetti({ particleCount: 120, spread: 80, origin: { y: 0.5 } });
+        }
+      }
+
+      function refresh() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
